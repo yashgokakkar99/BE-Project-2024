@@ -33,7 +33,7 @@ function Register() {
           Site name | Register
         </h2>
         <form onSubmit={handleSubmit}>
-          <div className="grid grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 gap-4 md:grid md:grid-cols-2 md:gap-16">
             <input
               className="border-2 border-black w-2/4 m-auto  placeholder-black p-1"
               type="text"
