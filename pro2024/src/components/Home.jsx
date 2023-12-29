@@ -1,9 +1,18 @@
-import React from 'react'
+// Home.js
+import React from 'react';
+import ImageSlider from './ImageSlider';
+import AboutUs from './AboutUs';
 
-function Home() {
+const Home = () => {
   return (
-    <div>Home</div>
-  )
-}
+    <div>
+    {/* <h1>Heelllo</h1> */}
+    <AboutUs />
+      <ImageSlider />
+      
+      {/* Other content goes here */}
+    </div>
+  );
+};
 
-export default Home
+export default Home;
