@@ -22,7 +22,7 @@ function Navbar1() {
             LOGO
           </button>
         </Link>
-        <Link to="/upload">
+        <Link to="/UploadFile">
           <button className="bg-teal-500 text-white border border-white px-4 py-2 rounded">
             UPLOAD
           </button>
