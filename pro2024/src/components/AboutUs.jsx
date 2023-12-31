@@ -3,11 +3,11 @@ import React from "react";
 function AboutUs() {
   return (
     <div className="container mx-auto text-center mt-10">
-      <h1 className="text-5xl font-bold mb-16 text-gray-800 mt-4">
+      <h1 className="text-5xl font-bold mb-16 text-gray-300 mt-4">
         We Are Website Name
       </h1>
 
-      <p className="text-lg leading-relaxed mb-8 text-gray-600 text-justify mx-16">
+      <p className="text-lg leading-relaxed mb-8 text-gray-300 text-justify mx-16">
         Welcome to our platform! We are a team of passionate individuals
         dedicated to providing innovative solutions. Our mission is to make your
         online experience seamless and enjoyable. Lorem ipsum dolor sit amet,
@@ -19,7 +19,7 @@ function AboutUs() {
         amet magna ullamcorper efficitur.
       </p>
 
-      <p className="text-lg leading-relaxed mb-8 text-gray-600 text-justify mx-16">
+      <p className="text-lg leading-relaxed mb-8 text-gray-300 text-justify mx-16">
         At "Website Name," we believe in simplicity and efficiency. Our goal is
         to empower users through cutting-edge technology and user-friendly
         interfaces. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -30,7 +30,7 @@ function AboutUs() {
         adipiscing elit. Quisque ac mauris sit amet magna ullamcorper efficitur.
       </p>
 
-      <p className="text-lg leading-relaxed mb-8 text-gray-600 text-justify mx-16">
+      <p className="text-lg leading-relaxed mb-8 text-gray-300 text-justify mx-16">
         At "Website Name," we believe in simplicity and efficiency. Our goal is
         to empower users through cutting-edge technology and user-friendly
         interfaces. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -41,7 +41,7 @@ function AboutUs() {
         adipiscing elit. Quisque ac mauris sit amet magna ullamcorper efficitur.
       </p>
 
-      <h1 className="text-5xl font-bold mb-16 text-gray-800 mt-4">
+      <h1 className="text-5xl font-bold mb-16 text-gray-300 mt-4">
         Our Services
       </h1>
 
@@ -57,7 +57,7 @@ function AboutUs() {
               alt={`Icon ${index + 1}`}
               className="w-20 h-20 object-cover rounded-full border-4 border-00ADB5 mb-4 mx-auto"
             />
-            <p className="text-lg font-bold text-gray-800">
+            <p className="text-lg font-bold text-gray-300">
               Description {index + 1}. Lorem ipsum dolor sit amet, consectetur
               adipiscing elit.
             </p>
