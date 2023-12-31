@@ -6,7 +6,7 @@ import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa'; // Import i
 function Footer() {
   return (
 
-    <footer className="bg-gray-900 text-white p-8">
+    <footer className="bg-[#222831] text-white p-8">
       <div className="flex justify-between items-center">
         {/* Logo and Description on the left */}
         <div className="flex flex-col items-start w-1/3 text-teal-500"> {/* Set a fixed width */}

@@ -14,27 +14,27 @@ function Navbar1() {
     }
 
   return (
-    <div className="bg-gray-700 p-4 flex justify-between items-center">
+    <div className="bg-[#393E46] p-4 flex justify-between items-center">
       {/* Left side buttons */}
       <div className="flex items-center space-x-4">
         <Link to="/">
-          <button className="bg-teal-500 text-white border border-white px-4 py-2 rounded">
+          <button className="bg-[#00ADB5] text-[#EEEEEE] font-bold px-4 py-2 rounded">
             LOGO
           </button>
         </Link>
         <Link to="/UploadFile">
-          <button className="bg-teal-500 text-white border border-white px-4 py-2 rounded">
-            UPLOAD
+          <button className="bg-[#00ADB5] text-[#EEEEEE] font-bold px-4 py-2 rounded">
+            Upload
           </button>
         </Link>
         <Link to="/get_docs">
-          <button className="bg-teal-500 text-white border border-white px-4 py-2 rounded">
-            GET DOCS
+          <button className="bg-[#00ADB5] text-[#EEEEEE] font-bold px-4 py-2 rounded">
+            Get Docs
           </button>
         </Link>
         <Link to="/share_docs">
-          <button className="bg-teal-500 text-white border border-white px-4 py-2 rounded">
-            SHARE DOCS
+          <button className="bg-[#00ADB5] text-[#EEEEEE] font-bold px-4 py-2 rounded">
+            Share Docs
           </button>
         </Link>
       </div>
@@ -42,13 +42,13 @@ function Navbar1() {
       {/* Right side buttons */}
       <div className="flex items-center space-x-4">
         <Link to="#">
-          <button className="bg-teal-500 text-white border border-white px-4 py-2 rounded" onClick={handleChnagePassword}>
-            CHANGE PASSWORD
+          <button className="bg-[#00ADB5] text-[#EEEEEE] font-bold px-4 py-2 rounded" onClick={handleChnagePassword}>
+            Change Password
           </button>
         </Link>
         <Link to="/">
-          <button className="bg-teal-500 text-white border border-white px-4 py-2 rounded" onClick={handleLogout}>
-            LOGOUT
+          <button className="bg-[#00ADB5] text-[#EEEEEE] font-bold px-4 py-2 rounded" onClick={handleLogout}>
+            Logout
           </button>
         </Link>
       </div>

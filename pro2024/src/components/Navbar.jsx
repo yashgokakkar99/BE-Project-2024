@@ -12,25 +12,25 @@ function Navbar() {
     navigate('/Register');
   };
   return (
-    <nav className="flex items-center justify-between bg-gray-700 p-4">
+    <nav className="flex items-center justify-between bg-[#393E46] p-4">
       <div className="flex items-center mr-4"> 
         <Link to="/">
-          <div className="bg-teal-500 text-white p-4 rounded-md w-20 mr-2">
+          <div className="bg-[#00ADB5] text-[#EEEEEE] p-4 rounded-md w-20 mr-2">
             Logo
           </div>
         </Link>
-        <div className="text-white">Your Logo Name</div>
+        <div className="text-[#EEEEEE]">Your Logo Name</div>
       </div>
 
       <div className="flex items-center">
         {/* Button 1 */}
-        <button className="bg-teal-500 text-white p-2 rounded-md border border-white mr-8" onClick={handleSignIn}>
-          SIGNIN
+        <button className="bg-[#00ADB5] text-[#EEEEEE] p-2 rounded-md font-bold mr-8" onClick={handleSignIn}>
+          Sign In
         </button>
 
         {/* Button 2 */}
-        <button className="bg-teal-500 text-white p-2 rounded-md border border-white mr-4" onClick={handleSignUp}>
-          SIGNUP
+        <button className="bg-[#00ADB5] text-[#EEEEEE] p-2 rounded-md font-bold mr-4" onClick={handleSignUp}>
+          Sign Up
         </button>
       </div>
     </nav>
