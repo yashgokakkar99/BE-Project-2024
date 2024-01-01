@@ -3,46 +3,41 @@ import React, { useRef, useState } from "react";
 function UploadFile() {
   const fileInputRef = useRef();
   const [uploadedFileName, setUploadedFileName] = useState("");
+  const [selectedDocument, setSelectedDocument] = useState(null);
 
   const handleUpload = () => {
-    // Trigger the file input
     fileInputRef.current.click();
   };
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
-      // Implement your file upload logic here
       console.log(`Uploading file: ${file.name}`);
-      setUploadedFileName(file.name); // Set the uploaded file name
+      setUploadedFileName(file.name);
+      setSelectedDocument({
+        uploadedDate: new Date().toLocaleDateString(),
+        size: "To be calculated",
+        type: file.type,
+        previewUrl: URL.createObjectURL(file),
+      });
     } else {
       console.log("No file selected");
-      setUploadedFileName(""); // Clear the uploaded file name
+      setUploadedFileName("");
+      setSelectedDocument(null);
     }
   };
 
-    const handlePreview = () => {
-      if (uploadedFileName) {
-        // Assuming the file content is stored or generated dynamically
-        const fileContent =
-          "This is the content of the file. Replace it with your logic.";
-
-        // Open a new window
-        const previewWindow = window.open("", "_blank", "width=600,height=400");
-
-        // Write the file content to the new window
-        previewWindow.document.write(`<pre>${fileContent}</pre>`);
-      } else {
-        console.log("No file uploaded for preview");
-      }
-    };
-  
+  const handlePreview = () => {
+    // Your logic for previewing the selected document
+    console.log("Previewing file");
+  };
 
   return (
-    <div className="flex justify-between items-center text-center h-screen">
-      <div>
+    <div className="grid grid-cols-10 gap-4 h-screen pt-4 pb-4 bg-[#1A2027]">
+      <div className="col-span-5 h-500 p-2 bg-[#1A2027] text-[#222831] shadow-md flex flex-col justify-center items-center ">
+        <h1 className="text-white text-lg font-bold mb-4">Upload Document</h1>
         <button
-          className="bg-teal-500 text-white border border-white px-4 py-2 rounded ml-36 w-80"
+          className="bg-teal-500 text-white border border-white px-4 py-2 rounded w-80 mb-2"
           onClick={handleUpload}
         >
           Upload File
@@ -53,24 +48,32 @@ function UploadFile() {
           style={{ display: "none" }}
           onChange={handleFileChange}
         />
-        <h3 className="px-4 py-2 ml-36">.pdf, .jpg, .png files</h3>
-      </div>
-
-      <div>
+        <h3 className="text-white px-4 py-2">.pdf, .jpg, .png files</h3>
         <button
-          className="bg-teal-500 text-white border border-white px-4 py-2 rounded mr-36 w-80"
+          className="bg-teal-500 text-white border border-white px-4 py-2 rounded w-80 mt-4"
           onClick={handlePreview}
         >
           Preview File
         </button>
-        <h3 className="px-4 py-2 mr-36">View Uploaded Files</h3>
-      </div>
-
-      <div className="p-4 mr-16 w-60 bg-teal-100 shadow-md">
+        <h3 className="text-white px-4 py-2">View Uploaded Files</h3>
         {uploadedFileName && (
-          <p className="text-lg text-gray-800">
+          <p className="mt-4 text-lg text-white">
             Uploaded file: {uploadedFileName}
           </p>
+        )}
+      </div>
+
+      <div className="col-span-5 h-500 p-2 bg-[#222831] text-[#EEEEEE] font-bold">
+        <h1>Document Preview</h1>
+        {selectedDocument && (
+          <iframe
+            src={selectedDocument.previewUrl}
+            title="Document Preview"
+            width="100%"
+            height="95%"
+            style={{ border: "none" }}
+            scrolling="auto"
+          ></iframe>
         )}
       </div>
     </div>
