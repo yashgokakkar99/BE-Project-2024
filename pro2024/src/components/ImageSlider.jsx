@@ -28,7 +28,7 @@ const ImageSlider = () => {
         <img src={img2} alt="Slider 2" className="w-full h-full object-contain" />
       </div>
       <div className="flex justify-center items-center h-80">
-        <img src={img3} alt="Slider 3" className="w-full h-full object-contain" />
+        <img src={img3} alt="Slider 34" className="w-full h-full object-contain" />
       </div>
     </Slider>
   );
