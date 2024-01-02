@@ -1,25 +1,26 @@
-import React from 'react'
-import {Link} from 'react-router-dom';
-import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa'; // Import icons as needed
 
+
+import React from 'react'
+import { Link } from 'react-router-dom';
+import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa'; // Import icons as needed
 
 function Footer() {
   return (
-
-    <footer className="bg-[#222831] text-white p-8">
+    <footer className="bg-[#393E46] text-white p-8">
       <div className="flex justify-between items-center">
-        {/* Logo and Description on the left */}
-        <div className="flex flex-col items-start w-1/3 text-teal-500"> {/* Set a fixed width */}
+        {/* Logo on the left */}
+        <div className="text-4xl font-bold mb-2">
           {/* Make the logo a Link */}
           <Link to="/">
-            <div className="text-4xl font-bold mb-2">Your Logo</div>
+            Your Logo
           </Link>
-          {/* Description on the left */}
-          <p className="text-gray-400 text-center text-justify">
+        </div>
+
+        {/* Description in the middle */}
+        <div className="text-gray-400 text-center text-justify w-1/3"> {/* Set a fixed width */}
           Revolutionizing document storage with blockchain for secure, accessible data. 
           Experience the future of decentralized management with privacy at its core.
           Your documents, your control.
-          </p>
         </div>
 
         {/* Social Media Icons and Navigation Links on the right */}
@@ -61,10 +62,11 @@ function Footer() {
               <Link to="/contact" className="text-teal-500">Contact Us</Link>
             </li>
           </ul>
+
         </div>
       </div>
+      <div className="mt-4 text-center text-gray-300 text-lg">© Cpoyright SAFELOCK 2024. All Rights Reserved</div>
     </footer>
-
   )
 }
 

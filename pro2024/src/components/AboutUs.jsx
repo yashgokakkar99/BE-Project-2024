@@ -2,7 +2,7 @@ import React from "react";
 
 function AboutUs() {
   return (
-    <div className="container mx-auto text-center mt-10">
+    <div className="container mx-auto text-center ">
       <h1 className="text-5xl font-bold mb-16 text-gray-300 mt-4">
         We Are Website Name
       </h1>
@@ -40,8 +40,11 @@ function AboutUs() {
         seamless and enjoyable. Lorem ipsum dolor sit amet, consectetur
         adipiscing elit. Quisque ac mauris sit amet magna ullamcorper efficitur.
       </p>
-
       <h1 className="text-5xl font-bold mb-16 text-gray-300 mt-4">
+        Why Choose Us?
+      </h1>
+
+      <h1 className="text-3xl font-bold mb-16 text-blue-300 mt-4">
         Our Services
       </h1>
 
@@ -65,7 +68,7 @@ function AboutUs() {
         ))}
       </div>
 
-      <div className="mb-12 p-8 bg-gray-100 shadow-md rounded-md">
+      <div className=" p-8 bg-gray-100 shadow-md rounded-md">
         <h1 className="text-3xl font-bold mb-4 text-gray-800">
           We Will Be Happy to Provide You Services
         </h1>
