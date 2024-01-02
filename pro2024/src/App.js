@@ -47,10 +47,11 @@ export default App;
 // import Login from './components/Login';
 // import UploadFile from './components/UploadFile';
 // import Register from './components/Register';
-
+// import ShareDoc from './components/ShareDoc';
+// import GetDoc from './components/GetDoc';
 
 // function App() {
-//   const isLoggedIn = false;  // Set this dynamically based on user login status
+//   const isLoggedIn = true;  // Set this dynamically based on user login status
 
 //   return (
 //     <Router>
@@ -65,6 +66,8 @@ export default App;
 //             <Route path="/login" element={<Login />} />
 //             <Route path="/register" element={<Register />} />
 //             <Route path="/UploadFile" element={<UploadFile />} />
+//             <Route path="/get_docs" element={<GetDoc />} />
+//             <Route path="/share_docs" element={<ShareDoc />} />
             
 
 //           </Routes>

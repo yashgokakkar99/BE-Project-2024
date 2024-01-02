@@ -19,7 +19,7 @@ function Navbar() {
             Logo
           </div>
         </Link>
-        <div className="text-[#EEEEEE]">Your Logo Name</div>
+        <div className="text-[#EEEEEE]">SAFELOCK</div>
       </div>
 
       <div className="flex items-center">
