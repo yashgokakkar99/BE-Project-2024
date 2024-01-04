@@ -1,7 +1,14 @@
 import React from 'react'
 import {Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+
 
 function Navbar() {
+
+  const userInfo = useSelector((state) => state.users.userInfo);
+
+console.log(userInfo)
+
   const navigate = useNavigate();
 
   const handleSignIn = () => {
@@ -22,17 +29,28 @@ function Navbar() {
         <div className="text-[#EEEEEE]">SAFELOCK</div>
       </div>
 
-      <div className="flex items-center">
-        {/* Button 1 */}
-        <button className="bg-[#00ADB5] text-[#EEEEEE] p-2 rounded-md font-bold mr-8" onClick={handleSignIn}>
-          Sign In
-        </button>
+      {userInfo ? (
+  <div className='text-white'>{userInfo.fullName}</div>
+) : (
+  <div className="flex items-center">
+    {/* Button 1 */}
+    <button
+      className="bg-[#00ADB5] text-[#EEEEEE] p-2 rounded-md font-bold mr-8"
+      onClick={handleSignIn}
+    >
+      Sign In
+    </button>
 
-        {/* Button 2 */}
-        <button className="bg-[#00ADB5] text-[#EEEEEE] p-2 rounded-md font-bold mr-4" onClick={handleSignUp}>
-          Sign Up
-        </button>
-      </div>
+    {/* Button 2 */}
+    <button
+      className="bg-[#00ADB5] text-[#EEEEEE] p-2 rounded-md font-bold mr-4"
+      onClick={handleSignUp}
+    >
+      Sign Up
+    </button>
+  </div>
+)}
+
     </nav>
   )
 }

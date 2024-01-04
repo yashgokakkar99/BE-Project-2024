@@ -2,7 +2,13 @@ import React from "react";
 import { useState } from "react";
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom'
+import { useDispatch } from "react-redux";
+import { setUserInfo } from "../redux/Users";
+
 function Register() {
+
+  const dispatch = useDispatch();
+
   // const [fullName, setFullName] = useState("");
   // const [email, setEmail] = useState("");
   // const [phoneNumber, setPhoneNumber] = useState("");
@@ -26,10 +32,13 @@ const handleClick = () =>{
   axios.post("http://localhost:8700/userProfile",userProfile);
 
   alert("Data Submitted Successfully");
+  dispatch(
+    setUserInfo(userProfile)
+  );
   
   navigate("/");
 }
-  console.log(userProfile)
+  // console.log(userProfile)
   // const handleSubmit = (e) => {
   //   e.preventDefault();
 
