@@ -1,13 +1,16 @@
 
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Link,useNavigate } from 'react-router-dom';
+import { userSignOut } from '../redux/Users';
 
 function Navbar1() {
-    const navigate=useNavigate();
+  const dispatch = useDispatch();
+  const navigate=useNavigate();
 
-    const handleLogout=()=>{
-        navigate('/');
-    }
+  const handleLogout=()=>{
+    dispatch(userSignOut());
+  }
 
     const handleChnagePassword=()=>{
         navigate('#');
