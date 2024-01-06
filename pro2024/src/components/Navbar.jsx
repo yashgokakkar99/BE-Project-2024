@@ -24,9 +24,9 @@ function Navbar() {
         <div className="text-[#EEEEEE]">SAFELOCK</div>
       </div>
 
-      {user ? (
-  <div className='text-white'>{user.fullName}</div>
-) : (
+      {user && (
+  <div className='text-white'>{user.fullName}</div>)}
+
   <div className="flex items-center">
     {/* Button 1 */}
     <button
@@ -44,7 +44,7 @@ function Navbar() {
       Sign Up
     </button>
   </div>
-)}
+
     </nav>
   )
 }
