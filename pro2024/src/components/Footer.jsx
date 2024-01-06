@@ -52,9 +52,7 @@ function Footer() {
             <li>
               <Link to="/about" className="text-teal-500">About Us</Link>
             </li>
-            <li>
-              <Link to="/features" className="text-teal-500">Features</Link>
-            </li>
+            
             <li>
               <Link to="/services" className="text-teal-500">Services</Link>
             </li>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function AboutUs() {
   return (
@@ -8,39 +9,32 @@ function AboutUs() {
       </h1>
 
       <p className="text-lg leading-relaxed mb-8 text-gray-300 text-justify mx-16">
-        Welcome to our platform! We are a team of passionate individuals
-        dedicated to providing innovative solutions. Our mission is to make your
-        online experience seamless and enjoyable. Lorem ipsum dolor sit amet,
-        consectetur adipiscing elit. Quisque ac mauris sit amet magna
-        ullamcorper efficitur.Welcome to our platform! We are a team of
-        passionate individuals dedicated to providing innovative solutions. Our
-        mission is to make your online experience seamless and enjoyable. Lorem
-        ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac mauris sit
-        amet magna ullamcorper efficitur.
+        Website is a cutting-edge document storage solution leveraging
+        blockchain technology for enhanced security and accessibility. This
+        innovative platform is designed to redefine decentralized data
+        management, placing privacy at the forefront. Users experience a
+        seamless and secure way to control their documents, offering
+        unparalleled privacy and management capabilities.
       </p>
 
       <p className="text-lg leading-relaxed mb-8 text-gray-300 text-justify mx-16">
-        At "Website Name," we believe in simplicity and efficiency. Our goal is
-        to empower users through cutting-edge technology and user-friendly
-        interfaces. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Quisque ac mauris sit amet magna ullamcorper efficitur.Welcome to our
-        platform! We are a team of passionate individuals dedicated to providing
-        innovative solutions. Our mission is to make your online experience
-        seamless and enjoyable. Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit. Quisque ac mauris sit amet magna ullamcorper efficitur.
+        At the heart of Websitename is a robust backend built on Node.js and
+        MySQL, ensuring reliable and scalable performance. The server
+        facilitates user registration and login processes with encrypted
+        password handling, incorporating bcrypt for advanced security. The
+        system employs a user-friendly interface, making document storage and
+        retrieval intuitive, and a sleek frontend designed with React for a
+        seamless user experience.
       </p>
 
       <p className="text-lg leading-relaxed mb-8 text-gray-300 text-justify mx-16">
-        At "Website Name," we believe in simplicity and efficiency. Our goal is
-        to empower users through cutting-edge technology and user-friendly
-        interfaces. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Quisque ac mauris sit amet magna ullamcorper efficitur. Welcome to our
-        platform! We are a team of passionate individuals dedicated to providing
-        innovative solutions. Our mission is to make your online experience
-        seamless and enjoyable. Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit. Quisque ac mauris sit amet magna ullamcorper efficitur.
+        websitename document preview feature enhances the user experience,
+        allowing individuals to visualize their uploaded documents directly
+        within the platform. This functionality streamlines the process of
+        verifying and accessing documents, making it an ideal solution for users
+        who prioritize efficiency in managing their digital assets.
       </p>
-      <h1 className="text-5xl font-bold mb-16 text-gray-300 mt-4">
+      <h1 className="text-5xl font-bold mb-16 text-red-400 mt-4">
         Why Choose Us?
       </h1>
 
@@ -78,7 +72,7 @@ function AboutUs() {
 
         <div className="flex justify-center space-x-4">
           <button className="bg-teal-500 text-white py-2 px-4 rounded-md border border-light-blue-700 hover:bg-light-blue-700 transition duration-300 ease-in-out">
-            Contact Us
+            <Link to="/contact"> Contact Us</Link>
           </button>
           <button className="bg-blue-300 text-white py-2 px-4 rounded-md border border-green-700 hover:bg-green-700 transition duration-300 ease-in-out">
             LinKeldn

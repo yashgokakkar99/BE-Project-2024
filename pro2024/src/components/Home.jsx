@@ -10,7 +10,7 @@ const Home = () => {
     {/* <h1>Heelllo</h1> */}
     <ImageSlider />
     <AboutUs />
-    <ContactUs />
+    {/* <ContactUs /> */}
       
       
       {/* Other content goes here */}

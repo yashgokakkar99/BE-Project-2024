@@ -10,6 +10,7 @@ import UploadFile from "./components/UploadFile";
 import Navbar1 from "./components/Navbar1";
 import GetDoc from "./components/GetDoc";
 import AboutUs from "./components/AboutUs";
+import ContactUs from './components/ContactUs';
 import { useSelector } from "react-redux";
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
             <Route path="/UploadFile" element={<UploadFile />} />
             <Route path="/get_docs" element={<GetDoc />} />
             <Route path="/share_docs" element={<ShareDoc />} />
+            <Route path="/contact" element={<ContactUs />} />
           </Routes>
         </div>
         <Footer />
