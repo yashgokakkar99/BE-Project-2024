@@ -16,11 +16,11 @@ const ImageSlider = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 2000,
   };
 
   return (
-    <Slider {...settings} className="mx-auto max-w-screen-xl border border-gray-300  w-full bg-gray-200">
+    <Slider {...settings} className="mx-auto max-w-screen border border-gray-300  w-full bg-gray-200 mt-3">
       <div className="h-80">
         <img src={img1} alt="Slider 1" className="w-full h-full object-cover" />
       </div>
