@@ -1,20 +1,37 @@
 import React from "react";
 import { useState } from "react";
+import {useNavigate} from 'react-router-dom'
+import { useDispatch } from "react-redux";
+import axios from "axios";
+import { setUserInfo } from "../redux/Users";
 
 function Login() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [aadharNumber, setAadharNumber] = useState("");
   const [password, setPassword] = useState("");
   
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Perform form validation and submission logic here
-    // For simplicity, we'll just log the form data for now
-    console.log({
-      aadharNumber,
-      password,
-    });
+    try {
+      const response = await axios.post("http://localhost:8700/login", {
+        Aadhar: aadharNumber,
+        Password: password,
+      });
+
+      if (response.data.success) {
+        alert("Login Successful");
+        dispatch(setUserInfo(response.data.user));
+        navigate("/");
+      } else {
+        alert("Invalid credentials");
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+      alert("Login Failed");
+    }
   };
 
   return (
@@ -42,7 +59,7 @@ function Login() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                placeholder="NEW PASSWORD"
+                placeholder="PASSWORD"
               />
             </div>
           </div>
