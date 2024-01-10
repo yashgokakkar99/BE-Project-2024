@@ -44,7 +44,7 @@ function Navbar1() {
       </div>
 
       {user && (
-  <div className='text-white'>Welcome {user.fullName}</div>)}
+  <div className='text-white font-bold'>Welcome {user.fullName} !!</div>)}
       {/* Right side buttons */}
       <div className="flex items-center space-x-4">
         <Link to="#">
