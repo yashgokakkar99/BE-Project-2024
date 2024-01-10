@@ -3,6 +3,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa'; // Import icons as needed
+import logos from '../images/logo1.png';
 
 function Footer() {
   return (
@@ -12,12 +13,17 @@ function Footer() {
         <div className="text-4xl font-bold mb-2">
           {/* Make the logo a Link */}
           <Link to="/">
-            Your Logo
+          <img 
+            src={logos}
+            alt="logo image"
+            className="w-80 h-30 "
+            >
+          </img>
           </Link>
         </div>
 
         {/* Description in the middle */}
-        <div className="text-gray-400 text-center text-justify w-1/3"> {/* Set a fixed width */}
+        <div className="text-gray-100 text-center text-justify w-1/3"> {/* Set a fixed width */}
           Revolutionizing document storage with blockchain for secure, accessible data. 
           Experience the future of decentralized management with privacy at its core.
           Your documents, your control.
@@ -63,7 +69,7 @@ function Footer() {
 
         </div>
       </div>
-      <div className="mt-4 text-center text-gray-300 text-lg">© Cpoyright SAFELOCK 2024. All Rights Reserved</div>
+      <div className="mt-4 text-center text-gray-300 text-lg">© Copyright Crypt Drive 2024. All Rights Reserved</div>
     </footer>
   )
 }
