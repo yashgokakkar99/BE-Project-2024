@@ -1,12 +1,13 @@
 
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link,useNavigate } from 'react-router-dom';
 import { userSignOut } from '../redux/Users';
 
 function Navbar1() {
   const dispatch = useDispatch();
   const navigate=useNavigate();
+  const user = useSelector((state) => state.usersReducer.user);
 
   const handleLogout=()=>{
     dispatch(userSignOut());
@@ -42,6 +43,8 @@ function Navbar1() {
         </Link>
       </div>
 
+      {user && (
+  <div className='text-white font-bold'>Welcome {user.fullName} !!</div>)}
       {/* Right side buttons */}
       <div className="flex items-center space-x-4">
         <Link to="#">

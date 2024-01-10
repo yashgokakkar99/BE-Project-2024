@@ -1,10 +1,8 @@
 import React from 'react'
 import {Link, useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from "react-redux";
 
 function Navbar() {
   const navigate = useNavigate();
-  const user = useSelector((state) => state.usersReducer.user);
 
   const handleSignIn = () => {
     navigate('/Login'); 
@@ -21,11 +19,9 @@ function Navbar() {
             Logo
           </div>
         </Link>
-        <div className="text-[#EEEEEE]">SAFELOCK</div>
+        <div className="text-[#EEEEEE]">Crypt Drive</div>
       </div>
 
-      {user && (
-  <div className='text-white'>{user.fullName}</div>)}
 
   <div className="flex items-center">
     {/* Button 1 */}

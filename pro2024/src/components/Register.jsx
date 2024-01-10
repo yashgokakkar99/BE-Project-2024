@@ -5,17 +5,11 @@ import {useNavigate} from 'react-router-dom'
 import { useDispatch } from "react-redux";
 import { setUserInfo } from "../redux/Users";
 
-
 function Register() {
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  // const [fullName, setFullName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [phoneNumber, setPhoneNumber] = useState("");
-  // const [aadharNumber, setAadharNumber] = useState("");
-  // const [newPassword, setNewPassword] = useState("");
-  // const [confirmPassword, setConfirmPassword] = useState("");
   const [userProfile,SetuserProfile] = useState({
     fullName:"",
     Email:"",
@@ -27,33 +21,26 @@ function Register() {
   const handleChange =(e)=>{
     SetuserProfile(prev=>({...prev,[e.target.name]:e.target.value}))
   };
-  // Function to handle form submission
-  const navigate = useNavigate();
-const handleClick = () =>{
-  axios.post("http://localhost:8700/userProfile",userProfile);
 
-  alert("Data Submitted Successfully");
-  dispatch(
-    setUserInfo(userProfile)
-  );
-  
-  navigate("/");
-}
-  console.log(userProfile)
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
+const handleClick = async () => {
+  try {
+    const response = await axios.post("http://localhost:8700/register", userProfile);
 
-  //   // Perform form validation and submission logic here
-  //   // For simplicity, we'll just log the form data for now
-  //   console.log({
-  //     // userProfile.fullName,
-  //     // userProfile.Email,
-  //     // userProfile.Telephone,
-  //     // userProfile.Aadhar,
-  //     // userProfile.Password,
-      
-  //   });
-  // // };
+    if (response.data.success) {
+      alert("Registration Successful");
+      dispatch(setUserInfo(userProfile));
+      navigate("/");
+    } else {
+      alert("Registration Failed");
+    }
+  } catch (error) {
+    console.error("Error during registration:", error);
+    alert("Registration Failed");
+  }
+};
+
+  // console.log(userProfile)
+
 
   // JSX code for the registration form
   return (

@@ -1,7 +1,10 @@
 import React from "react";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const GetDoc = () => {
+
+  const user = useSelector((state) => state.usersReducer.user);
   const [selectedDocument, setSelectedDocument] = useState(null);
 
   const userProfile = {
@@ -55,10 +58,10 @@ const GetDoc = () => {
     <div className="grid grid-cols-10 gap-4 h-screen pt-4 pb-4 bg-[#1A2027]">
       <div className="row-span-4 col-span-3  h-500  p-2 bg-[#222831] text-[#EEEEEE] font-bold">
         <h1>User Profile</h1>
-        <p>Name : {userProfile.name}</p>
-        <p>Email : {userProfile.email}</p>
-        <p>Aadhar No. : {userProfile.aadhar}</p>
-        <p>Phone : {userProfile.phone}</p>
+        <p>Name : {user.fullName}</p>
+        <p>Email : {user.Email}</p>
+        <p>Aadhar No. : {user.Aadhar}</p>
+        <p>Phone : {user.Telephone}</p>
       </div>
       <div className="row-span-3 col-span-3  h-500  p-2 bg-[#222831] text-[#EEEEEE] font-bold">
         <h1>Document List</h1>

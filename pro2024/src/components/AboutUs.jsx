@@ -5,11 +5,11 @@ function AboutUs() {
   return (
     <div className="container mx-auto text-center ">
       <h1 className="text-5xl font-bold mb-16 text-gray-300 mt-4">
-        We Are Website Name
+        Crypt Drive
       </h1>
 
       <p className="text-lg leading-relaxed mb-8 text-gray-300 text-justify mx-16">
-        Website is a cutting-edge document storage solution leveraging
+        Crypt Drive is a cutting-edge document storage solution leveraging
         blockchain technology for enhanced security and accessibility. This
         innovative platform is designed to redefine decentralized data
         management, placing privacy at the forefront. Users experience a
@@ -18,7 +18,7 @@ function AboutUs() {
       </p>
 
       <p className="text-lg leading-relaxed mb-8 text-gray-300 text-justify mx-16">
-        At the heart of Websitename is a robust backend built on Node.js and
+        At the heart of Crypt Drive is a robust backend built on Node.js and
         MySQL, ensuring reliable and scalable performance. The server
         facilitates user registration and login processes with encrypted
         password handling, incorporating bcrypt for advanced security. The
@@ -28,7 +28,7 @@ function AboutUs() {
       </p>
 
       <p className="text-lg leading-relaxed mb-8 text-gray-300 text-justify mx-16">
-        websitename document preview feature enhances the user experience,
+        Crypt Drive document preview feature enhances the user experience,
         allowing individuals to visualize their uploaded documents directly
         within the platform. This functionality streamlines the process of
         verifying and accessing documents, making it an ideal solution for users
@@ -74,13 +74,13 @@ function AboutUs() {
           <button className="bg-teal-500 text-white py-2 px-4 rounded-md border border-light-blue-700 hover:bg-light-blue-700 transition duration-300 ease-in-out">
             <Link to="/contact"> Contact Us</Link>
           </button>
-          <button className="bg-blue-300 text-white py-2 px-4 rounded-md border border-green-700 hover:bg-green-700 transition duration-300 ease-in-out">
+          <button className="bg-teal-500 text-white py-2 px-4 rounded-md border border-light-blue-700 hover:bg-light-blue-700 transition duration-300 ease-in-out">
             LinKeldn
           </button>
-          <button className="bg-green-500 text-white py-2 px-4 rounded-md border border-yellow-700 hover:bg-yellow-700 transition duration-300 ease-in-out">
+          <button className="bg-teal-500 text-white py-2 px-4 rounded-md border border-light-blue-700 hover:bg-light-blue-700 transition duration-300 ease-in-out">
             WhatsApp
           </button>
-          <button className="bg-red-500 text-white py-2 px-4 rounded-md border border-red-700 hover:bg-red-700 transition duration-300 ease-in-out">
+          <button className="bg-teal-500 text-white py-2 px-4 rounded-md border border-light-blue-700 hover:bg-light-blue-700 transition duration-300 ease-in-out">
             Sign Up
           </button>
         </div>

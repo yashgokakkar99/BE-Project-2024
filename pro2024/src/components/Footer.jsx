@@ -63,7 +63,7 @@ function Footer() {
 
         </div>
       </div>
-      <div className="mt-4 text-center text-gray-300 text-lg">© Cpoyright SAFELOCK 2024. All Rights Reserved</div>
+      <div className="mt-4 text-center text-gray-300 text-lg">© Cpoyright Crypt Drive 2024. All Rights Reserved</div>
     </footer>
   )
 }
