@@ -5,6 +5,7 @@ import img1 from '../images/1.jpg';
 import img2 from '../images/2.jpg';
 import img3 from '../images/3.jpg';
 
+
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -30,6 +31,7 @@ const ImageSlider = () => {
       <div className="h-80">
         <img src={img3} alt="Slider 3" className="w-full h-full object-cover" />
       </div>
+      
     </Slider>
   );
 };
