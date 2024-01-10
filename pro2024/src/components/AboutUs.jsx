@@ -1,5 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import icon1 from '../../src/images/aadhaar.svg'
+import icon2 from '../../src/images/compliant.png'
+import icon3 from '../../src/images/folder.png'
+import icon4 from '../../src/images/blockchain.png'
 
 function AboutUs() {
   return (
@@ -34,7 +38,7 @@ function AboutUs() {
         verifying and accessing documents, making it an ideal solution for users
         who prioritize efficiency in managing their digital assets.
       </p>
-      <h1 className="text-5xl font-bold mb-16 text-red-400 mt-4">
+      <h1 className="text-5xl font-bold mb-16 text-teal-500 mt-4">
         Why Choose Us?
       </h1>
 
@@ -42,46 +46,70 @@ function AboutUs() {
         Our Services
       </h1>
 
-      <div className="flex justify-center flex-wrap mb-12">
-        {Array.from({ length: 6 }, (_, index) => (
-          <div
-            key={index}
-            className="mx-6 text-center mb-8"
-            style={{ flex: "0 0 30%" }}
-          >
-            <img
-              src={`https://placekitten.com/150/15${index}`}
-              alt={`Icon ${index + 1}`}
-              className="w-20 h-20 object-cover rounded-full border-4 border-00ADB5 mb-4 mx-auto"
-            />
-            <p className="text-lg font-bold text-gray-300">
-              Description {index + 1}. Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit.
-            </p>
-          </div>
-        ))}
-      </div>
+      
+      <div className="flex justify-center mb-12">
+      <div className="mx-6 text-center">
+          <img
+            src={icon2}
+            alt="Icon 2"
+            className="w-15 h-20 object-cover  border-00ADB5 mb-4 mx-auto"
+          />
+          <p className="text-lg font-bold text-gray-200">
+            Secure document storage
+          </p>
+        </div>
+        <div className="mx-6 text-center">
+          <img
+            src={icon1}
+            alt="Icon 1"
+            className="w-15 h-20 object-cover border-00ADB5 mb-4 mx-auto"
+          />
+          <p className="text-lg font-bold text-gray-200">
+            Authentication using Aadhar
+          </p>
+        </div>
+        
+        <div className="mx-6 text-center">
+          <img
+            src={icon3}
+            alt="Icon 3"
+            className="w-15 h-20 object-cover  border-00ADB5 mb-4 mx-auto"
+          />
+          <p className="text-lg font-bold text-gray-200">
+            Secure document sharing
+          </p>
+        </div>
 
-      <div className=" p-8 bg-gray-100 shadow-md rounded-md">
-        <h1 className="text-3xl font-bold mb-4 text-gray-800">
+        <div className="mx-6 text-center">
+          <img
+            src={icon4}
+            alt="Icon 1"
+            className="w-15 h-20 object-cover  border-00ADB5 mb-4 mx-auto"
+          />
+          <p className="text-lg font-bold text-gray-200">
+            Blockchain technology
+          </p>
+        </div>
+        
+        
+      </div> 
+
+      <div className=" p-8 bg-[#1E1E1E] shadow-md rounded-md">
+        <h1 className="text-3xl font-bold mb-4 text-gray-300">
           We Will Be Happy to Provide You Services
         </h1>
-        <h3 className="text-lg font-bold mb-8 text-gray-600">
+        <h3 className="text-lg font-bold mb-8 text-gray-300">
           Please connect with us and make your documents more secure.
         </h3>
 
         <div className="flex justify-center space-x-4">
-          <button className="bg-teal-500 text-white py-2 px-4 rounded-md border border-light-blue-700 hover:bg-light-blue-700 transition duration-300 ease-in-out">
+          <button className="bg-teal-500 text-white py-2 px-4 rounded-md font-bold border-light-blue-700 hover:bg-light-blue-700 transition duration-300 ease-in-out">
             <Link to="/contact"> Contact Us</Link>
           </button>
-          <button className="bg-teal-500 text-white py-2 px-4 rounded-md border border-light-blue-700 hover:bg-light-blue-700 transition duration-300 ease-in-out">
-            LinKeldn
-          </button>
-          <button className="bg-teal-500 text-white py-2 px-4 rounded-md border border-light-blue-700 hover:bg-light-blue-700 transition duration-300 ease-in-out">
-            WhatsApp
-          </button>
-          <button className="bg-teal-500 text-white py-2 px-4 rounded-md border border-light-blue-700 hover:bg-light-blue-700 transition duration-300 ease-in-out">
-            Sign Up
+          
+          <button className="bg-teal-500 text-white py-2 px-4 rounded-md font-bold border-light-blue-700 hover:bg-light-blue-700 transition duration-300 ease-in-out">
+          <Link to="/register"> Sign Up</Link>
+
           </button>
         </div>
       </div>
@@ -91,74 +119,3 @@ function AboutUs() {
 
 export default AboutUs;
 
-{
-  /* <div className="flex justify-center mb-12">
-        <div className="mx-6 text-center">
-          <img
-            src="https://placekitten.com/150/150"
-            alt="Icon 1"
-            className="w-20 h-20 object-cover rounded-full border-4 border-00ADB5 mb-4 mx-auto"
-          />
-          <p className="text-lg font-bold text-gray-800">
-            Description 1. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit.
-          </p>
-        </div>
-        <div className="mx-6 text-center">
-          <img
-            src="https://placekitten.com/150/151"
-            alt="Icon 2"
-            className="w-20 h-20 object-cover rounded-full border-4 border-00ADB5 mb-4 mx-auto"
-          />
-          <p className="text-lg font-bold text-gray-800">
-            Description 2. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit.
-          </p>
-        </div>
-        <div className="mx-6 text-center">
-          <img
-            src="https://placekitten.com/150/152"
-            alt="Icon 3"
-            className="w-20 h-20 object-cover rounded-full border-4 border-00ADB5 mb-4 mx-auto"
-          />
-          <p className="text-lg font-bold text-gray-800">
-            Description 3. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit.
-          </p>
-        </div>
-
-        <div className="mx-6 text-center">
-          <img
-            src="https://placekitten.com/150/150"
-            alt="Icon 1"
-            className="w-20 h-20 object-cover rounded-full border-4 border-00ADB5 mb-4 mx-auto"
-          />
-          <p className="text-lg font-bold text-gray-800">
-            Description 1. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit.
-          </p>
-        </div>
-        <div className="mx-6 text-center">
-          <img
-            src="https://placekitten.com/150/151"
-            alt="Icon 2"
-            className="w-20 h-20 object-cover rounded-full border-4 border-00ADB5 mb-4 mx-auto"
-          />
-          <p className="text-lg font-bold text-gray-800">
-            Description 2. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit.
-          </p>
-        </div>
-        <div className="mx-6 text-center">
-          <img
-            src="https://placekitten.com/150/152"
-            alt="Icon 3"
-            className="w-20 h-20 object-cover rounded-full border-4 border-00ADB5 mb-4 mx-auto"
-          />
-          <p className="text-lg font-bold text-gray-800">
-            Description 3. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit.
-          </p>
-        </div>
-      </div> */
-}
