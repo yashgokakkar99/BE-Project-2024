@@ -102,10 +102,8 @@ app.post("/uploadToIpfs", async (req, res) => {
 
     const ipfsPath = ipfsResponse.result[0].path;
 
-    // Log the received fileName
     console.log("Received fileName:", req.body.fileName);
 
-    // Insert the file path and name into the documentPaths table
     const insertQuery =
       "INSERT INTO documentPaths (aadhar, name, ipfsPath) VALUES (?, ?, ?)";
     const insertValues = [req.body.userAadhar, req.body.fileName, ipfsPath];
@@ -127,7 +125,6 @@ app.post("/uploadToIpfs", async (req, res) => {
 app.get("/getDocuments/:aadhar", (req, res) => {
   const aadhar = req.params.aadhar;
 
-  // Fetch documents based on Aadhar
   const selectQuery = "SELECT * FROM documentPaths WHERE aadhar = ?";
   db.query(selectQuery, [aadhar], (err, data) => {
     if (err) {
@@ -147,6 +144,104 @@ app.get("/userProfile", (req, res) => {
   });
 });
 
+app.post("/requestAccess", (req, res) => {
+  const { requesterAadhar, documentId, ownerAadhar } = req.body;
+
+  const insertRequestQuery =
+    "INSERT INTO documentAccessRequests (requesterAadhar, documentId, ownerAadhar) VALUES (?, ?, ?)";
+
+  db.query(
+    insertRequestQuery,
+    [requesterAadhar, documentId, ownerAadhar],
+    (err, data) => {
+      if (err) {
+        console.error("Error inserting access request:", err);
+        return res.status(500).json({ error: "Internal Server Error" });
+      }
+
+      res.json({ success: true });
+    }
+  );
+});
+
+app.get("/getRequestHistory/:aadhar", (req, res) => {
+  const aadhar = req.params.aadhar;
+
+  const selectRequestHistoryQuery =
+    "SELECT * FROM documentAccessRequests WHERE ownerAadhar = ?";
+
+  db.query(selectRequestHistoryQuery, [aadhar], (err, data) => {
+    if (err) {
+      console.error("Error fetching request history:", err);
+      return res.status(500).json({ error: "Internal Server Error" });
+    }
+
+    res.json(data);
+  });
+});
+
+app.patch("/updateRequestStatus/:id", (req, res) => {
+  const requestId = req.params.id;
+  const { status } = req.body;
+
+  const updateStatusQuery =
+    "UPDATE documentAccessRequests SET status = ? WHERE id = ?";
+
+  db.query(updateStatusQuery, [status, requestId], (err, data) => {
+    if (err) {
+      console.error("Error updating request status:", err);
+      return res.status(500).json({ error: "Internal Server Error" });
+    }
+
+    res.json({ success: true });
+  });
+});
+
+app.post("/storeApprovedRequest", (req, res) => {
+  const { requesterAadhar, documentId } = req.body;
+
+  const insertRequestQuery =
+    "INSERT INTO approvedRequests (requesterAadhar, documentId) VALUES (?, ?)";
+
+  db.query(insertRequestQuery, [requesterAadhar, documentId], (err, data) => {
+    if (err) {
+      console.error("Error storing approved request data:", err);
+      return res.status(500).json({ error: "Internal Server Error" });
+    }
+
+    res.json({ success: true });
+  });
+});
+
+app.get("/users", (req, res) => {
+  const selectUsersQuery = "SELECT Aadhar, fullName FROM userProfile";
+  db.query(selectUsersQuery, (err, data) => {
+    if (err) {
+      console.error("Error fetching users:", err);
+      return res.status(500).json({ error: "Internal Server Error" });
+    }
+
+    res.json(data);
+  });
+});
+
+app.get("/getApprovedDocuments", (req, res) => {
+  const getApprovedDocumentsQuery = `
+    SELECT ar.id, ar.requesterAadhar, ar.approvalDate, dp.*
+    FROM approvedRequests ar
+    JOIN documentpaths dp ON ar.documentId = dp.id
+  `;
+
+  db.query(getApprovedDocumentsQuery, (err, data) => {
+    if (err) {
+      console.error("Error fetching approved documents:", err);
+      return res.status(500).json({ error: "Internal Server Error" });
+    }
+
+    res.json(data);
+  });
+});
+
 app.listen(8700, () => {
-  console.log("Connected backend");
+  console.log("Connected backend");
 });
