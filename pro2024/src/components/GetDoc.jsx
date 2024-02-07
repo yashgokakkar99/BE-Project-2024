@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import aadhar from "../../src/images/aadhaar_pro.svg";
+import gmail from "../../src/images/gmail.svg";
+import phone from "../../src/images/phone.svg";
 
 const GetDoc = () => {
   const [selectedDocument, setSelectedDocument] = useState(null);
@@ -36,25 +39,57 @@ const GetDoc = () => {
   };
 
   return (
-    <div className="grid grid-cols-10 gap-4 h-screen pt-4 pb-4 bg-[#1A2027]">
+    <div className="grid grid-cols-10 gap-4 h-fit pt-4 pb-4 bg-[#1A2027]">
       {/* User Profile */}
-      <div className="row-span-3 col-span-3 h-500 p-2 bg-[#222831] text-[#EEEEEE] font-bold">
-        <h1>User Profile</h1>
-        <p>Name: {user.fullName}</p>
-        <p>Email: {user.Email}</p>
-        <p>Aadhar No.: {user.Aadhar}</p>
-        <p>Phone: {user.Telephone}</p>
+      <div className="row-span-3 col-span-3 h-fit p-2 bg-[#222831] text-[#EEEEEE] rounded-md">
+        <div className=" bg-[#00ADB5] rounded-md font-bold p-2 mb-2">
+          <h1 className=" font-bold">User Profile</h1>
+        </div>
+        <div className="bg-[#393E46] p-2 rounded-md">
+          <div className="mb-2">
+            <p className="text-large font-bold">{user.fullName}</p>
+          </div>
+
+          <div className="flex items-center mb-2">
+            <p className="flex items-center">
+              <span className="mr-4">
+                <img src={gmail} className="w-10 h-15" alt="Gmail" />
+              </span>{" "}
+              {user.Email}
+            </p>
+          </div>
+
+          <div className="flex items-center mb-2">
+            <p className="flex items-center">
+              <span className="mr-4">
+                <img src={aadhar} className="w-10 h-15" alt="Aadhar" />
+              </span>
+              {user.Aadhar}
+            </p>
+          </div>
+
+          <div className="flex items-center mb-2">
+            <p className="flex items-center">
+              <span className="mr-4">
+                <img src={phone} className="w-10 h-15" alt="Phone" />
+              </span>
+              {user.Telephone}
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Document List */}
       <div className="row-span-2 col-span-3 h-500 p-2 bg-[#222831] text-[#EEEEEE] font-bold">
-        <h1>Document List</h1>
+        <div className=" bg-[#00ADB5] rounded-md font-bold p-2 mb-2">
+          <h1 className=" font-bold">Documents List</h1>
+        </div>
         <ul>
           {documentList.map((doc) => (
             <li
               key={doc.id}
               onClick={() => handleDocumentSelect(doc)}
-              className=" cursor-pointer"
+              className=" cursor-pointer bg-[#393E46] p-2 rounded-md"
             >
               {doc.name}
             </li>
@@ -64,13 +99,15 @@ const GetDoc = () => {
 
       {/* Document Preview */}
       <div className="row-span-4 col-span-4 h-500 p-2 bg-[#222831] text-[#EEEEEE] font-bold">
-        <h1>Document Preview</h1>
+        <div className=" bg-[#00ADB5] rounded-md font-bold p-2 mb-2">
+          <h1 className=" font-bold">Document Preview</h1>
+        </div>
         {selectedDocument && (
           <iframe
             src={selectedDocument.ipfsPath}
             title="Document Preview"
             width="100%"
-            height="95%"
+            height="85%"
             style={{ border: "none" }}
             scrolling="auto"
           ></iframe>
@@ -79,9 +116,11 @@ const GetDoc = () => {
 
       {/* Document Details */}
       <div className="row-span-2 col-span-3 h-500 p-2 bg-[#222831] text-[#EEEEEE] font-bold">
-        <h1>Document Details</h1>
+        <div className=" bg-[#00ADB5] rounded-md font-bold p-2 mb-2">
+          <h1 className=" font-bold">Document Details</h1>
+        </div>
         {selectedDocument && (
-          <div>
+          <div className="bg-[#393E46] p-2 rounded-md">
             <p>Uploaded Date: {selectedDocument.uploadedDate}</p>
             <p>Size: {selectedDocument.size}</p>
             <p>Type: {selectedDocument.type}</p>
@@ -90,16 +129,18 @@ const GetDoc = () => {
       </div>
 
       {/* Approved Documents */}
-      <div className="row-span-3 col-span-3 h-500 p-2 bg-[#222831] text-[#EEEEEE] font-bold">
-        <h1>Approved Documents</h1>
+      <div className="row-span-3 col-span-3 h-500 p-2 bg-[#222831] text-[#EEEEEE] ">
+        <div className=" bg-[#00ADB5] rounded-md font-bold p-2 mb-2">
+          <h1 className=" font-bold">Approved Documents</h1>
+        </div>
         <ul>
           {approvedDocuments.map((doc) => (
             <li
               key={doc.id}
               onClick={() => handleDocumentSelect(doc)}
-              className=" cursor-pointer"
+              className=" cursor-pointer bg-[#393E46] p-2 rounded-md"
             >
-              {doc.name}  
+              {doc.name}
             </li>
           ))}
         </ul>
@@ -109,4 +150,3 @@ const GetDoc = () => {
 };
 
 export default GetDoc;
-

@@ -106,7 +106,7 @@ function UploadFile() {
             src={selectedDocument.previewUrl}
             title="Document Preview"
             width="100%"
-            height="95%"
+            height="85%"
             style={{ border: "none" }}
             scrolling="auto"
           ></iframe>

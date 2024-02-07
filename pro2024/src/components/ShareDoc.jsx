@@ -80,7 +80,7 @@ const ShareDoc = () => {
         .then((response) => response.json())
         .then((data) => {
           console.log("Access request sent successfully:", data);
-          alert("Access request sent successfully:", data)
+          alert("Access request sent successfully:", data);
         })
         .catch((error) => {
           console.error("Error sending access request:", error);
@@ -88,7 +88,12 @@ const ShareDoc = () => {
     }
   };
 
-  const handleStatusChange = (requestId, status, requesterAadhar,documentId ) => {
+  const handleStatusChange = (
+    requestId,
+    status,
+    requesterAadhar,
+    documentId
+  ) => {
     fetch(`http://localhost:8700/updateRequestStatus/${requestId}`, {
       method: "PATCH",
       headers: {
@@ -99,14 +104,13 @@ const ShareDoc = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log("Request status updated successfully:", data);
-  
+
         if (status === "approved") {
           const requestData = {
             requesterAadhar: requesterAadhar,
             documentId: documentId,
-           
           };
-  
+
           fetch("http://localhost:8700/storeApprovedRequest", {
             method: "POST",
             headers: {
@@ -116,7 +120,10 @@ const ShareDoc = () => {
           })
             .then((response) => response.json())
             .then((storeData) => {
-              console.log("Approved request data stored successfully:", storeData);
+              console.log(
+                "Approved request data stored successfully:",
+                storeData
+              );
               fetchRequestHistory(currentUser.Aadhar);
             })
             .catch((storeError) => {
@@ -130,36 +137,38 @@ const ShareDoc = () => {
         console.error("Error updating request status:", error);
       });
   };
-  
 
   return (
-    <div className="flex h-screen bg-[#1A2027]">
+    <div className="flex h-fit bg-[#1A2027]">
       <div className="w-1/3 p-8 border-r border-gray-600">
-        <div className="text-center mb-4">
-          <h2 className="text-lg font-bold text-white">Users</h2>
+        <div className=" bg-[#00ADB5] rounded-md font-bold p-2 mb-2">
+          <h1 className=" font-bold text-white">Users</h1>
         </div>
-        <ul className="mt-4">
-          {users.map((user) => (
-            user.Aadhar !== currentUser.Aadhar && (
-              <li
-                className="text-white font-bold cursor-pointer"
-                key={user.Aadhar}
-                onClick={() => handleUserSelection(user)}
-              >
-                {user.fullName}
-              </li>
-            )
-          ))}
-        </ul>
+        <div className="bg-[#393E46] rounded-md p-2">
+          <ul className="">
+            {users.map(
+              (user) =>
+                user.Aadhar !== currentUser.Aadhar && (
+                  <li
+                    className="text-white font-bold cursor-pointer bg-[#515863] p-2 rounded-md mt-2 mb-2"
+                    key={user.Aadhar}
+                    onClick={() => handleUserSelection(user)}
+                  >
+                    {user.fullName}
+                  </li>
+                )
+            )}
+          </ul>
+        </div>
       </div>
       <div className="w-1/3 p-8 border-r border-l border-gray-600">
-        <div className="text-center mb-4">
-          <h2 className="text-lg font-bold text-white">User Documents</h2>
+        <div className="text-white bg-[#00ADB5] rounded-md font-bold p-2 mb-2">
+          <h1 className=" font-bold">User Documents</h1>
         </div>
         <ul className="mt-4">
           {userDocuments.map((document) => (
             <li
-              className="text-white font-bold cursor-pointer"
+              className="text-white font-bold cursor-pointer bg-[#393E46] p-2 rounded-md mb-2"
               key={document.id}
               onClick={() => handleDocumentSelection(document)}
             >
@@ -168,38 +177,67 @@ const ShareDoc = () => {
           ))}
         </ul>
       </div>
-      <div className="flex flex-col p-12 w-1/3 border-l border-gray-600">
-        <div className="text-white text-center mb-4">Request History</div>
-        <div className="flex items-center justify-center h-full">
-          <div className="p-4 bg-gray-800 text-white">
-            <p>Username: {selectedUser ? selectedUser.fullName : "-"}</p>
-            <p>Document Name: {selectedDocument ? selectedDocument.name : "-"}</p>
+      <div className="flex flex-col p-8 w-1/3 border-l border-gray-600">
+        <div className="text-white bg-[#00ADB5] rounded-md font-bold p-2 mb-2">
+          <h1 className=" font-bold">Document requests</h1>
+        </div>
+        
+        <div className="flex flex-col ">
+          <div className="p-4 bg-[#393E46] text-white rounded-md mb-2">
+            <p>
+              <span className="font-bold">Username:</span>{" "}
+              {selectedUser ? selectedUser.fullName : "-"}
+            </p>
+            <p>
+              <span className="font-bold">Document Name:</span>{" "}
+              {selectedDocument ? selectedDocument.name : "-"}
+            </p>
             {selectedUser && selectedDocument && (
               <button
-                className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
+                className="mt-4 bg-blue-500 text-white p-2 rounded font-bold"
                 onClick={handleRequestAccess}
               >
                 Request Access
               </button>
             )}
           </div>
-          <div className="mt-4">
-            <h3 className="text-lg font-bold text-white mb-2">Request History</h3>
+          <div className="p-2 rounded-md bg-[#393E46]">
+            <div className=" text-white bg-[#00ADB5] rounded-md font-bold p-2 mb-2">
+              <h1 className=" font-bold">Requests History</h1>
+            </div>
             <ul>
               {requestHistory.map((request) => (
-                <li className="text-white font-bold" key={request.id}>
-                  Requester: {request.requesterAadhar}, Document ID: {request.documentId}
+                <li
+                  className="text-white font-bold bg-[#515863] rounded-md mt-2 mb-2 p-2"
+                  key={request.id}
+                >
+                  Requester's ID: {request.requesterAadhar}, Document ID:{" "}
+                  {request.documentId}
                   {request.status === "pending" && (
                     <div className="mt-2">
                       <button
                         className="bg-green-500 text-white px-2 py-1 rounded mr-2"
-                        onClick={() => handleStatusChange(request.id, "approved", request.requesterAadhar,request.documentId )}
+                        onClick={() =>
+                          handleStatusChange(
+                            request.id,
+                            "approved",
+                            request.requesterAadhar,
+                            request.documentId
+                          )
+                        }
                       >
                         Approve
                       </button>
                       <button
                         className="bg-red-500 text-white px-2 py-1 rounded"
-                        onClick={() => handleStatusChange(request.id, "rejected", request.requesterAadhar,request.documentId)}
+                        onClick={() =>
+                          handleStatusChange(
+                            request.id,
+                            "rejected",
+                            request.requesterAadhar,
+                            request.documentId
+                          )
+                        }
                       >
                         Reject
                       </button>
@@ -222,5 +260,3 @@ const ShareDoc = () => {
 };
 
 export default ShareDoc;
-
-
