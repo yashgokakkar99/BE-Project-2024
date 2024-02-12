@@ -17,8 +17,6 @@ function UploadFile() {
   
     if (file) {
       console.log(`Uploading file: ${file.name}`);
-      console.log(file.size/1000)
-      console.log(file)
       setUploadedFileName(file.name);
   
       try {
@@ -27,8 +25,9 @@ function UploadFile() {
         const fileContent = await readFileAsBase64(file);
         const response = await uploadToIpfs(fileContent, file.name);  // Pass the file name
   
-        console.log("File uploaded to IPFS:", response.ipfsPath);
-        // setSelectedDocument(response.ipfsPath);
+        // console.log("File uploaded to IPFS:", response.ipfsPath);
+        alert("File uploaded to IPFS")
+        setSelectedDocument(response.ipfsPath);
       } catch (error) {
         console.error("Error uploading file:", error.message);
 
@@ -42,9 +41,6 @@ function UploadFile() {
 
   const [preview, setPreview] = useState(false)
   const handlePreview = () => {
-    const timestamp = new Date().toISOString();
-    console.log(timestamp)
-    // Your logic for previewing the selected document
     setPreview(true)
     console.log("Previewing file");
   };
