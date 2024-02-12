@@ -17,6 +17,8 @@ function UploadFile() {
   
     if (file) {
       console.log(`Uploading file: ${file.name}`);
+      console.log(file.size/1000)
+      console.log(file)
       setUploadedFileName(file.name);
   
       try {
@@ -26,12 +28,11 @@ function UploadFile() {
         const response = await uploadToIpfs(fileContent, file.name);  // Pass the file name
   
         console.log("File uploaded to IPFS:", response.ipfsPath);
+        // setSelectedDocument(response.ipfsPath);
       } catch (error) {
         console.error("Error uploading file:", error.message);
 
-      } finally {
-
-      }
+      } 
     } else {
       console.log("No file selected");
       setUploadedFileName("");
@@ -39,8 +40,12 @@ function UploadFile() {
     }
   };
 
+  const [preview, setPreview] = useState(false)
   const handlePreview = () => {
+    const timestamp = new Date().toISOString();
+    console.log(timestamp)
     // Your logic for previewing the selected document
+    setPreview(true)
     console.log("Previewing file");
   };
 
@@ -55,16 +60,23 @@ function UploadFile() {
 
   const uploadToIpfs = async (fileContent, fileName) => { 
     try {
+      const file = fileInputRef.current.files[0];
+      const fileSizeKB = file.size / 1000; // Size of the file in KB
+      const currentDatetime = new Date().toISOString(); // Current datetime in ISO format
+  
       const response = await axios.post("http://localhost:8700/uploadToIpfs", {
         fileContent,
         userAadhar: user.Aadhar,
         fileName,
+        fileSizeKB,
+        uploadDatetime: currentDatetime,
       });
       return response.data;
     } catch (error) {
       throw new Error("Error uploading to IPFS");
     }
   };
+  
   
 
 
@@ -101,9 +113,9 @@ function UploadFile() {
 
       <div className="col-span-5 h-500 p-2 bg-[#222831] text-[#EEEEEE] font-bold">
         <h1>Document Preview</h1>
-        {selectedDocument && (
+        {preview && selectedDocument && (
           <iframe
-            src={selectedDocument.previewUrl}
+            src={selectedDocument}
             title="Document Preview"
             width="100%"
             height="85%"

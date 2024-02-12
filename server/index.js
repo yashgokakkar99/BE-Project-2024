@@ -18,7 +18,7 @@ app.use(express.urlencoded({ limit: "50mb", extended: true }));
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "password",
+  password: "shriniket",
   port: "3306",
   database: "finalYearProject",
 });
@@ -84,9 +84,17 @@ app.post("/login", async (req, res) => {
     res.json({ success: true, user: user });
   });
 });
-
 app.post("/uploadToIpfs", async (req, res) => {
   const fileContent = req.body.fileContent;
+  const fileName = req.body.fileName;
+  const userAadhar = req.body.userAadhar;
+  const fileSizeKB = req.body.fileSizeKB;
+
+  // Generate a datetime string in ISO 8601 format
+  const uploadDatetime = new Date()
+    .toISOString()
+    .slice(0, 19)
+    .replace("T", " ");
 
   const fileUpload = [
     {
@@ -102,11 +110,17 @@ app.post("/uploadToIpfs", async (req, res) => {
 
     const ipfsPath = ipfsResponse.result[0].path;
 
-    console.log("Received fileName:", req.body.fileName);
+    console.log("Received fileName:", fileName);
 
     const insertQuery =
-      "INSERT INTO documentPaths (aadhar, name, ipfsPath) VALUES (?, ?, ?)";
-    const insertValues = [req.body.userAadhar, req.body.fileName, ipfsPath];
+      "INSERT INTO documentPaths (aadhar, name, ipfsPath, fileSizeKB, uploadDatetime) VALUES (?, ?, ?, ?, ?)";
+    const insertValues = [
+      userAadhar,
+      fileName,
+      ipfsPath,
+      fileSizeKB,
+      uploadDatetime,
+    ];
 
     db.query(insertQuery, insertValues, (err, data) => {
       if (err) {

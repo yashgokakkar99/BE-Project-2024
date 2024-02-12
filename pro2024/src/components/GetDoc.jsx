@@ -36,7 +36,27 @@ const GetDoc = () => {
 
   const handleDocumentSelect = (document) => {
     setSelectedDocument(document);
+    console.log(document)
   };
+
+  const calculateFileSizeAndType = (file) => {
+    if (!file) {
+      return { type: 'N/A' };
+    }
+  
+    let fileType = 'N/A';
+    if (file.type) {
+      fileType = file.type;
+    } else {
+      const fileNameParts = file.name.split('.');
+      if (fileNameParts.length > 1) {
+        fileType = fileNameParts[fileNameParts.length - 1];
+      }
+    }
+  
+    return { type: fileType };
+  };
+  
 
   return (
     <div className="grid grid-cols-10 gap-4 h-fit pt-4 pb-4 bg-[#1A2027]">
@@ -121,9 +141,9 @@ const GetDoc = () => {
         </div>
         {selectedDocument && (
           <div className="bg-[#393E46] p-2 rounded-md">
-            <p>Uploaded Date: {selectedDocument.uploadedDate}</p>
-            <p>Size: {selectedDocument.size}</p>
-            <p>Type: {selectedDocument.type}</p>
+            <p>Uploaded Date: {selectedDocument.uploadDatetime}</p>
+            <p>Size: {selectedDocument.fileSizeKB} KB</p>
+            <p>Type: {calculateFileSizeAndType(selectedDocument).type}</p>
           </div>
         )}
       </div>
