@@ -109,7 +109,7 @@ const GetDoc = () => {
             <li
               key={doc.id}
               onClick={() => handleDocumentSelect(doc)}
-              className=" cursor-pointer bg-[#393E46] p-2 rounded-md"
+              className=" cursor-pointer bg-[#393E46] p-2 rounded-md mb-2"
             >
               {doc.name}
             </li>
