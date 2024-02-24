@@ -59,7 +59,7 @@ const GetDoc = () => {
   
 
   return (
-    <div className="grid grid-cols-10 gap-4 h-fit pt-4 pb-4 bg-[#1A2027]">
+    <div className="md:grid md:grid-cols-10 gap-4 h-fit pt-4 pb-4 bg-[#1A2027] flex flex-col">
       {/* User Profile */}
       <div className="row-span-3 col-span-3 h-fit p-2 bg-[#222831] text-[#EEEEEE] rounded-md">
         <div className=" bg-[#00ADB5] rounded-md font-bold p-2 mb-2">

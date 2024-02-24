@@ -8,7 +8,7 @@ import logos from '../images/logo1.png';
 function Footer() {
   return (
     <footer className="bg-[#393E46] text-white p-8">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center flex-col md:flex-row">
         {/* Logo on the left */}
         <div className="text-4xl font-bold mb-2">
           {/* Make the logo a Link */}
@@ -23,7 +23,7 @@ function Footer() {
         </div>
 
         {/* Description in the middle */}
-        <div className="text-white text-center text-justify w-1/3"> {/* Set a fixed width */}
+        <div className="text-white text-center text-justify w-1/3 mb-4 md:mb-4"> {/* Set a fixed width */}
           Revolutionizing document storage with blockchain for secure, accessible data. 
           Experience the future of decentralized management with privacy at its core.
           Your documents, your control.

@@ -8,7 +8,9 @@ const Home = () => {
   return (
     <div className='bg-gray-800' style={{ overflowX: 'hidden' }}>
     {/* <h1>Heelllo</h1> */}
-    <ImageSlider />
+    <div className="hidden md:block">
+        <ImageSlider />
+      </div>
     <AboutUs />
     {/* <ContactUs /> */}
       
